@@ -29,7 +29,8 @@ local allents = ents.GetAll()
 !!FUTURE UPDATE!! ]]--
 
 local folder = "IBCatEdition"
-local version = "v7.1.b1"
+local version = "v7.1.b2"
+local latestBuild = "July 18th, 2024"
 
 local menukeydown, frame, menuopen, mousedown, candoslider, drawlast, notyetselected, fa, aa, aimtarget, aimignore
 local optimized, manual, manualpressed, tppressed, tptoggle, applied, windowopen, pressed, usespam, displayed, blackscreen, footprints, loopedprops = false
@@ -855,10 +856,10 @@ local function DrawText(w, h, title)
    surface.SetTextColor(menutextcol.r, menutextcol.g, menutextcol.b, gInt("Adjustments", "Others", "Text Opacity:"))
    surface.SetFont("MainFont")
    surface.DrawText(title)
-   if title == "IB Cat Edition v7.1.b1" then
+   if title == "IB Cat Edition v7.1.b2" then
 	   surface.SetTextPos(250, 18 - th / 2)
 	   surface.SetFont("MainFont2")
-	   surface.DrawText("Latest build: June 30th 2024")
+	   surface.DrawText("Built: " .. latestBuild)
    end
 end
 
@@ -2025,7 +2026,7 @@ local function Menu()
 			draw.RoundedBox(gInt("Adjustments", "Others", "Roundness:"), 1, 1, w - 2, h - 2, Color(bgmenucol.r + 55, bgmenucol.g + 55, bgmenucol.b + 55, 255))
 		end
 		draw.RoundedBox(gInt("Adjustments", "Others", "Roundness:"), 2, 2, w - 4, h - 4, Color(bgmenucol.r, bgmenucol.g, bgmenucol.b, 255))
-		DrawText(w, h, "IB Cat Edition v7.1.b1")
+		DrawText(w, h, "IB Cat Edition v7.1.b2")
 		DrawTabs(self, w, h)
 		DrawSub(self, w, h)
 		if (drawlast) then
@@ -4285,34 +4286,34 @@ local function Visuals(v)
 				   end
 				   if (friendstatus == "friend") and (ib.creator[v:SteamID()] or ib.contributors[v:SteamID()] or ib.cateditioncreator[v:SteamID()]) then
 					   if table.HasValue(ignorelist, v:UniqueID()) then
-						   draw.SimpleText("Ignored Target", "VisualsFont", pos.x, pos.y - h - 39 - 13, ignoredcol, 1, 1)
+						   draw.SimpleText("*ignored*", "VisualsFont", pos.x, pos.y - h - 39 - 13, ignoredcol, 1, 1)
 					   end
 					   if table.HasValue(prioritylist, v:UniqueID()) then
-						   draw.SimpleText("Priority Target", "VisualsFont", pos.x, pos.y - h - 39 - 13, prioritycol, 1, 1)
+						   draw.SimpleText("*prioritized*", "VisualsFont", pos.x, pos.y - h - 39 - 13, prioritycol, 1, 1)
 					   end
 				   end
 				   if (friendstatus == "friend") and not (ib.creator[v:SteamID()] or ib.contributors[v:SteamID()] or ib.cateditioncreator[v:SteamID()]) then
 					   if table.HasValue(ignorelist, v:UniqueID()) then
-						   draw.SimpleText("Ignored Target", "VisualsFont", pos.x, pos.y - h - 26 - 13, ignoredcol, 1, 1)
+						   draw.SimpleText("*ignored*", "VisualsFont", pos.x, pos.y - h - 26 - 13, ignoredcol, 1, 1)
 					   end
 					   if table.HasValue(prioritylist, v:UniqueID()) then
-						   draw.SimpleText("Priority Target", "VisualsFont", pos.x, pos.y - h - 26 - 13, prioritycol, 1, 1)
+						   draw.SimpleText("*prioritized*", "VisualsFont", pos.x, pos.y - h - 26 - 13, prioritycol, 1, 1)
 					   end
 				   end
 				   if (friendstatus ~= "friend") and (ib.creator[v:SteamID()] or ib.contributors[v:SteamID()] or ib.cateditioncreator[v:SteamID()]) then
 					   if table.HasValue(ignorelist, v:UniqueID()) then
-						   draw.SimpleText("Ignored Target", "VisualsFont", pos.x, pos.y - h - 26 - 13, ignoredcol, 1, 1)
+						   draw.SimpleText("*ignored*", "VisualsFont", pos.x, pos.y - h - 26 - 13, ignoredcol, 1, 1)
 					   end
 					   if table.HasValue(prioritylist, v:UniqueID()) then
-						   draw.SimpleText("Priority Target", "VisualsFont", pos.x, pos.y - h - 26 - 13, prioritycol, 1, 1)
+						   draw.SimpleText("*prioritized*", "VisualsFont", pos.x, pos.y - h - 26 - 13, prioritycol, 1, 1)
 					   end
 				   end
 				   if (friendstatus ~= "friend") and not (ib.creator[v:SteamID()] or ib.contributors[v:SteamID()] or ib.cateditioncreator[v:SteamID()]) then
 					   if table.HasValue(ignorelist, v:UniqueID()) then
-						   draw.SimpleText("Ignored Target", "VisualsFont", pos.x, pos.y - h - 13 - 13, ignoredcol, 1, 1)
+						   draw.SimpleText("*ignored*", "VisualsFont", pos.x, pos.y - h - 13 - 13, ignoredcol, 1, 1)
 					   end
 					   if table.HasValue(prioritylist, v:UniqueID()) then
-						   draw.SimpleText("Priority Target", "VisualsFont", pos.x, pos.y - h - 13 - 13, prioritycol, 1, 1)
+						   draw.SimpleText("*prioritized*", "VisualsFont", pos.x, pos.y - h - 13 - 13, prioritycol, 1, 1)
 					   end
 				   end
 			   end
